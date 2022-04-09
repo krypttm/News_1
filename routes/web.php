@@ -20,3 +20,5 @@ Route::middleware(['role:admin'])->prefix('admin_panel')->group(function () {
     Route::resource('category', CategoryController::class);
     Route::resource('post', PostController::class);
 });
+
+//прописать методы для юзеров
