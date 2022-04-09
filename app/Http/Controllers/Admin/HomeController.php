@@ -12,9 +12,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function index() {
+    public function index()
+    {
         $posts_count = Post::all()->count();
-        return view('admin.home.index', ['posts_count' => $posts_count]);
+        $categories_count = Category::all()->count();
+
+        return view('admin.home.index', [
+            'posts_count' => $posts_count,
+            'categories_count' => $categories_count,
+        ]);
     }
 
     /**
@@ -52,8 +58,7 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         //
     }
 
@@ -64,8 +69,7 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id) {
         //
     }
 
@@ -75,8 +79,7 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         //
     }
 }
