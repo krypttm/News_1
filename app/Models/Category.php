@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model {
     use HasFactory;
-
+   /* public function post() {
+        return $this->hasMany('App\Models\Post', );
+    }*/
+    //один ко многим, категория имеет много постов
 }
