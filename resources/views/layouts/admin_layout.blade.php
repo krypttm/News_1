@@ -170,8 +170,8 @@
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="/admin/dist/js/pages/dashboard.js"></script>
     <script type="text/javascript" src="/admin/dist/js/jquery.colorbox-min.js"></script>
-    <script src="https://cdn.tiny.cloud/1/jxsqeq85qzdwuqqqruya91jqsrhqtxykhxtks6sn0t1kn69g/tinymce/5/tinymce.min.js"
-        referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/0thbvf93z94u478exm4hgsr83lzz70ihtfuflx2vtst80c1n/tinymce/6/tinymce.min.js"
+            referrerpolicy="origin"></script>
     <script type="text/javascript" src="/packages/barryvdh/elfinder/js/standalonepopup.js"></script>
     <script src="/admin/admin.js"></script>
 </body>
