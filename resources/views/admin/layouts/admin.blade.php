@@ -70,7 +70,7 @@
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                     <li class="nav-item">
-                        <a href="pages/gallery.html" class="nav-link">
+                        <a href="{{route('homeAdmin')}}" class="nav-link">
                             <i class="nav-icon far fa-image"></i>
                             <p>
                                 Главная
@@ -180,5 +180,6 @@
 <script src="/admin/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/admin/dist/js/demo.js"></script>
+<script src="/admin/admin.js"></script>
 </body>
 </html>
