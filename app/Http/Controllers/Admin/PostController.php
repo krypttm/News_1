@@ -38,7 +38,15 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        //
+        $post = new Post();
+        $post->title = $request->title;
+        $post->img = '/'.$request->img;
+        $post->text = $request->text;
+        $post->cat_id = $request->cat_id;
+        $post->save();
+
+        return redirect()->back()->withSuccess('Статья была успешно добавлена');
+
     }
 
     /**
