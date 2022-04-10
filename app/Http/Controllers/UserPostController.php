@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class UserPostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,8 @@ class PostController extends Controller
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index() {
-
         $posts = Post::orderBy('created_at', 'DESC')->get();
-        return view('admin.post.index', [
+        return view('user.post.index', [
             'posts' => $posts
         ]);
     }
@@ -27,10 +25,11 @@ class PostController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function create() {
+    public function create()
+    {
         $categories = Category::get();
 
-        return view('admin.post.create', [
+        return view('user.post.create', [
             'categories' => $categories
         ]);
     }
@@ -55,7 +54,6 @@ class PostController extends Controller
         $post->save();
 
         return redirect()->back()->withSuccess('Статья была успешно добавлена');
-
     }
 
     /**
@@ -65,10 +63,7 @@ class PostController extends Controller
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function show(Post $post) {
-        $post = Post::where('id',$post['id'])->find();
-        //тут прописать функционал для просмотра одного поста
-       // $post = Post::find();//поиск поста, должно автоматом ид подтянуть
-        return view('post.show', compact('post'));
+
     }
 
     /**
@@ -80,7 +75,7 @@ class PostController extends Controller
     public function edit(Post $post) {
         $categories = Category::get();
 
-        return view('admin.post.edit', [
+        return view('user.post.edit', [
             'categories' => $categories,
             'post' => $post,
         ]);
@@ -94,11 +89,6 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Post $post) {
-        $this->validate($request, [
-            'title' =>'required|max:190:min:10',
-            'text' =>'required:min:20',
-        ]);
-
         $post->title = $request->title;
         $post->img = $request->img;
         $post->text = $request->text;
@@ -116,6 +106,7 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Post $post) {
+        $post= Post::find();
         $post->delete();
         return redirect()->back()->withSuccess('Статья была успешно удалена');
     }

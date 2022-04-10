@@ -2,7 +2,7 @@
 
 @section('title', 'Добавить статью')
 
-@section('content')
+@section('content_admin')
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">

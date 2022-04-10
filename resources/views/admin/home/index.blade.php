@@ -2,7 +2,7 @@
 
 @section('title', 'Главная')
 
-@section('content')
+@section('content_admin')
 
 
     <!-- Content Header (Page header) -->
@@ -53,7 +53,6 @@
                                 class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-
             </div>
             <!-- /.row -->
             <!-- Main row -->

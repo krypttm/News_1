@@ -1,26 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Category;
-use App\Models\Post;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller {
+class UserCategoryController extends Controller
+{
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function index()
-    {
-        $posts_count = Post::all()->count();
-        $categories_count = Category::all()->count();
-
-        return view('admin.home.index', [
-            'posts_count' => $posts_count,
-            'categories_count' => $categories_count,
+    public function index() {
+        $categories = Category::orderBy('created_at','asc')->get();
+        return view('user.category.index',[
+            'categories' => $categories
         ]);
     }
 
@@ -29,7 +24,8 @@ class HomeController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
+    public function create()
+    {
         //
     }
 
@@ -39,27 +35,30 @@ class HomeController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show($id) {
+    public function show(Category $category)
+    {
         //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) {
+    public function edit(Category $category)
+    {
         //
     }
 
@@ -67,20 +66,22 @@ class HomeController extends Controller {
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) {
+    public function update(Request $request, Category $category)
+    {
         //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) {
+    public function destroy(Category $category)
+    {
         //
     }
 }

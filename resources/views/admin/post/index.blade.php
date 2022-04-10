@@ -2,7 +2,7 @@
 
 @section('title', 'Все статьи')
 
-@section('content')
+@section('content_admin')
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
@@ -55,6 +55,7 @@
                                         {{ $post['title'] }}
                                     </td>
                                     <td>
+
                                         {{ $post->category['title'] }}
                                     </td>
                                     <td>
@@ -80,14 +81,14 @@
                                     </td>
                                 </tr>
                             @endforeach
-
-
                         </tbody>
                     </table>
+                    </div>
                 </div>
                 <!-- /.card-body -->
             </div>
-        </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
 @endsection

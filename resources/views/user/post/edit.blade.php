@@ -1,8 +1,8 @@
-@extends('layouts.admin_layout')
+@extends('layouts.app')
 
 @section('title', 'Редактировать статью')
 
-@section('content_admin')
+@section('content')
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">

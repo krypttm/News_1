@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -36,6 +37,10 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
+        $this->validate($request, [
+            'title' =>'required|max:50:min:3',
+        ]);
+
         $new_category = new Category();
         $new_category->title = $request->title;
         $new_category->save();
@@ -50,7 +55,7 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        //
+
     }
 
     /**
@@ -75,6 +80,10 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Category $category) {
+        $this->validate($request, [
+            'title' =>'required|max:50:min:3',
+        ]);
+
         $category->title = $request->title;
         $category->save();
 
@@ -89,7 +98,12 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Category $category) {
-        $category->delete();
+        $post= Post::find($category);
+        $category->post()->delete();
+
+
+
+
         //сделать проверку на наличие постов если есть удалить их
         return redirect()->back()->withSuccess('Категория была успешно удалена');
 

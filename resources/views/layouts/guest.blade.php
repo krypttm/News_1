@@ -103,9 +103,6 @@
                 <div class="image">
                     <img src="/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                 </div>
-                <div class="info">
-                    <a href="#" class="d-block">{{ Auth::user()->name }}</a>
-                </div>
             </div>
 
 
@@ -117,10 +114,10 @@
            with font-awesome or any other icon font library -->
 
                     <li class="nav-item">
-                        <a href="{{ route('homeUser') }}" class="nav-link">
+                        <a href="{{ route('post.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
-                                Личный кабинет
+                                Главная
                             </p>
                         </a>
                     </li>
@@ -136,11 +133,6 @@
                             <li class="nav-item">
                                 <a href="{{ route('post.index') }}" class="nav-link">
                                     <p>Все статьи</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('post.create') }}" class="nav-link">
-                                    <p>Добавить статью</p>
                                 </a>
                             </li>
                         </ul>
@@ -227,3 +219,4 @@
 </body>
 
 </html>
+

@@ -17,6 +17,9 @@ class CreatePostsTable extends Migration {
             $table->string('img');
             $table->text('text');
             $table->bigInteger('cat_id')->unsigned();
+            //$table->foreign('cat_id')->references('id')->on('categories')->onDelete();//->constrained()
+            //$table->integer('user_id');
+
             $table->timestamps();
         });
     }
