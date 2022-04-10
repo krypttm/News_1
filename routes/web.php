@@ -13,13 +13,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::group(['middleware'=>['role:admin']],function () {
-    Route::get('/home', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('homeAdmin'); // /admin
+    Route::get('home', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('homeAdmin'); // /admin
     Route::resource('category', App\Http\Controllers\Admin\CategoryController::class);
     Route::resource('post', App\Http\Controllers\Admin\PostController::class);
-   // Route::get('post/{id}', 'App\Http\Controllers\Admin\PostController@show');//вывод отдельного поста
 });
 
 
-//маршрут под отдельную статью
-//Route::get('category/{{id}}', 'App\Http\Controllers\CategoryController@show');
+Route::group(['middleware' => 'role:user'], function () {
+    Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('homeUser');
+    Route::resource('post', App\Http\Controllers\PostController::class);
+    Route::resource('category', App\Http\Controllers\CategoryController::class);
 
+});

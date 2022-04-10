@@ -65,10 +65,11 @@ class PostController extends Controller
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function show(Post $post) {
-        $post = Post::where('id',$post['id'])->find();
-        //тут прописать функционал для просмотра одного поста
-       // $post = Post::find();//поиск поста, должно автоматом ид подтянуть
-        return view('post.show', compact('post'));
+        $categories = Category::get();
+        return view('admin.post.show', [
+            'categories' => $categories,
+            'post' => $post,
+        ]);
     }
 
     /**

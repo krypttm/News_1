@@ -6,7 +6,7 @@ use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
-class UserPostController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -62,8 +62,11 @@ class UserPostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function show(Post $post) {
-
+    public function show($id) {
+        $posts = Post::get();
+        return view('user.post.show', [
+            'posts' => $posts,
+        ]);
     }
 
     /**

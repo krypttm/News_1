@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
-class UserCategoryController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,8 +36,7 @@ class UserCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         //
     }
 
@@ -44,11 +44,12 @@ class UserCategoryController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function show(Category $category)
-    {
-        //
+    public function show($id) {
+        $category = Category::where('id', $id)->get();
+        $posts = $category->posts();
+        return view('user.category.show',compact('category', 'posts'));
     }
 
     /**
@@ -57,8 +58,7 @@ class UserCategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
-    {
+    public function edit(Category $category) {
         //
     }
 

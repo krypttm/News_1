@@ -32,8 +32,7 @@ class CreateAdminSeeder extends Seeder
         $adminuser->assignRole('admin');// присваеваем роль админа
 
 
-
-        $user = User::create([
+       /* $user = User::create([
             'email' => 'example@gmail.com',
             'name' => 'test',
             'password' => Hash::make('test123'),
@@ -46,6 +45,6 @@ class CreateAdminSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
-        $user->assignRole('user');// присваеваем роль юзера
+        $user->assignRole('user');// присваеваем роль юзера*/
     }
 }

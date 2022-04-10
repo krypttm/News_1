@@ -25,27 +25,17 @@
     <section class="content">
         <div class="container-fluid">
             <div class="card">
-                        <div class="card-body p-0">
-                            <div class="jumbotron">
-                                <h2> Все статьи на сайте</h2>
-                                @foreach ($posts as $post)
-                                    <h3> Заголовок статьи:{{ $post['title'] }}</h3>
-
-                                    <a href="#">Категория: {{ $post->category['title'] }}</a>
-                                <br><br>
-                                    <img src="{{$post['img']}}" width="200" height="150">
-
-                                <hr>
-                                    <a class="btn btn-info btn-sm" href="{{ route('post.show', $post['id']) }}">
-                                        <i class="fas fa-pencil-alt">
-                                        </i>
-                                        Подробнее
-                                    </a>
-
-                                    <br>
-                                    <hr>
-                                @endforeach
-                            </div>
+                <div class="card-body p-0">
+                    <div class="jumbotron">
+                        <h2> Статьи категории</h2>
+                        @foreach ($posts as $post)
+                            <h3> Заголовок статьи:{{ $post['title'] }}</h3>
+                            <br><br>
+                            <img src="{{$post['img']}}" width="200" height="150">
+                            <p>{{ $post['text'] }}</p>
+                            <hr>
+                        @endforeach
+                    </div>
                 </div>
                 <!-- /.card-body -->
             </div>
@@ -53,3 +43,4 @@
     </section>
     <!-- /.content -->
 @endsection
+
