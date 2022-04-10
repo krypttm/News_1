@@ -19,9 +19,10 @@ Route::group(['middleware'=>['role:admin']],function () {
 });
 
 
-/*Route::group(['middleware' => 'role:user'], function () {
-   // Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('homeUser');
+/*Route::group(['middleware' => ['role:user']], function () {
+    //Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); // /admin
+
     Route::resource('post', App\Http\Controllers\PostController::class);
     Route::resource('category', App\Http\Controllers\CategoryController::class);
-
-});*/
+*/
+//});

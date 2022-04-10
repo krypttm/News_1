@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index() {
 
-        return view('user.home.index');//->with('posts', $user->posts);
+        return view('user.home.index');
     }
 
 

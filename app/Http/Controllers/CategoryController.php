@@ -47,9 +47,10 @@ class CategoryController extends Controller
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function show($id) {
-        $category = Category::find($id);
-        $posts = $category->posts($id);
-        return view('user.category.show',compact('category', 'posts'));
+        $category = Category::where('cat_id', $id)->get();
+        $posts = $category->posts;
+        return view('user.category.show',compact('posts', $posts));
+
 
 
     }

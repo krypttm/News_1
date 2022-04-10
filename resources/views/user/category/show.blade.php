@@ -28,7 +28,8 @@
                 <div class="card-body p-0">
                     <div class="jumbotron">
                         <h2> Статьи категории</h2>
-                        @foreach ($posts as $post)
+                        <p>{{ $category['title'] }}</p>
+                        @foreach ($category->posts as $post)
                             <h3> Заголовок статьи:{{ $post['title'] }}</h3>
                             <br><br>
                             <img src="{{$post['img']}}" width="200" height="150">

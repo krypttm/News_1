@@ -98,8 +98,8 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Category $category) {
-        $post= Post::find($category);
-        $category->post()->delete();
+
+        $category->delete();;
 
 
 
