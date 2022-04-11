@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Админ-панель - @yield('title')</title>
+    <title> @yield('title')</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -113,7 +113,7 @@
                with font-awesome or any other icon font library -->
 
                         <li class="nav-item">
-                            <a href="{{ route('homeAdmin') }}" class="nav-link">
+                            <a href="{{ route('home') }}" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Главная
@@ -155,11 +155,13 @@
                                         <p>Все категории</p>
                                     </a>
                                 </li>
+                                @can('category.edit')
                                 <li class="nav-item">
                                     <a href="{{ route('category.create') }}" class="nav-link">
                                         <p>Добавить категорию</p>
                                     </a>
                                 </li>
+                                @endcan
                             </ul>
                         </li>
 

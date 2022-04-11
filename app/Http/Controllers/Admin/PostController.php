@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
+
+use Illuminate\Auth\Access\Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -52,6 +55,7 @@ class PostController extends Controller
         $post->img = $request->img;
         $post->text = $request->text;
         $post->cat_id = $request->cat_id;
+        $post['user_id'] = Auth::user()->id;
         $post->save();
 
         return redirect()->back()->withSuccess('Статья была успешно добавлена');
@@ -65,11 +69,11 @@ class PostController extends Controller
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function show(Post $post) {
-        $categories = Category::get();
+       /* $categories = Category::get();
         return view('admin.post.show', [
             'categories' => $categories,
             'post' => $post,
-        ]);
+        ]);*/
     }
 
     /**
@@ -79,8 +83,8 @@ class PostController extends Controller
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function edit(Post $post) {
-        $categories = Category::get();
 
+        $categories = Category::get();
         return view('admin.post.edit', [
             'categories' => $categories,
             'post' => $post,
@@ -117,6 +121,7 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Post $post) {
+
         $post->delete();
         return redirect()->back()->withSuccess('Статья была успешно удалена');
     }

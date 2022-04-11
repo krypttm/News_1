@@ -63,6 +63,7 @@
                                     </td>
 
                                     <td class="project-actions text-right">
+                                        @canany(['post.edit' || 'post.destroy'], $post)
                                         <a class="btn btn-info btn-sm" href="{{ route('post.edit', $post['id']) }}">
                                             <i class="fas fa-pencil-alt">
                                             </i>
@@ -78,11 +79,18 @@
                                                 Удалить
                                             </button>
                                         </form>
+                                        @endcan
                                     </td>
                                 </tr>
                             @endforeach
+
+
+
+
                         </tbody>
                     </table>
+
+
                     </div>
                 </div>
                 <!-- /.card-body -->

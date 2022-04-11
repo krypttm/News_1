@@ -46,9 +46,10 @@
                                         {{ $category['id'] }}
                                     </td>
                                     <td>
-                                        {{ $category['title'] }}
-                                    </td>
+                                        {{$category['title'] }}
 
+                                    </td>
+                                    @canany(['category.edit', 'category.destroy'])
                                     <td class="project-actions text-right">
                                         <a class="btn btn-info btn-sm" href="{{ route('category.edit', $category['id']) }}">
                                             <i class="fas fa-pencil-alt">
@@ -65,6 +66,7 @@
                                                 Удалить
                                             </button>
                                         </form>
+                                        @endcan
                                     </td>
                                 </tr>
                             @endforeach

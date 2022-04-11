@@ -52,10 +52,10 @@ class CategoryController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function show($id) {
-
+       //
     }
 
     /**
@@ -67,6 +67,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category) {
 
+        $this->authorize('category.edit', $category);
         return view('admin.category.edit',[
             'category' => $category
             ]);
@@ -83,7 +84,6 @@ class CategoryController extends Controller
         $this->validate($request, [
             'title' =>'required|max:50:min:3',
         ]);
-
         $category->title = $request->title;
         $category->save();
 
@@ -98,12 +98,9 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Category $category) {
-
-        $category->delete();;
-
-
-
-
+        $category->delete();
+        $categories = Category::get();
+        $this->authorize('category.destroy', $category);
         //сделать проверку на наличие постов если есть удалить их
         return redirect()->back()->withSuccess('Категория была успешно удалена');
 

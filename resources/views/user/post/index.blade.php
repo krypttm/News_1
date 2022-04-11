@@ -36,11 +36,21 @@
                                     <img src="{{$post['img']}}" width="200" height="150">
 
                                 <hr>
-                                    <a class="btn btn-info btn-sm" href="{{ route('post.show', $post['id']) }}">
+                                    <a class="btn btn-info btn-sm" href="{{ route('post.edit', $post['id']) }}">
                                         <i class="fas fa-pencil-alt">
                                         </i>
-                                        Подробнее
+                                        Редактировать
                                     </a>
+                                    <form action="{{ route('post.destroy', $post['id']) }}" method="POST"
+                                          style="display: inline-block">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm delete-btn">
+                                            <i class="fas fa-trash">
+                                            </i>
+                                            Удалить
+                                        </button>
+                                    </form>
 
                                     <br>
                                     <hr>
