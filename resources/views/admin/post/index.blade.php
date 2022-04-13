@@ -63,12 +63,13 @@
                                     </td>
 
                                     <td class="project-actions text-right">
-                                        @canany(['post.edit' || 'post.destroy'], $post)
+                                        @can('post.edit', $post)
                                         <a class="btn btn-info btn-sm" href="{{ route('post.edit', $post['id']) }}">
                                             <i class="fas fa-pencil-alt">
                                             </i>
                                             Редактировать
                                         </a>
+                                        @endcan
                                         <form action="{{ route('post.destroy', $post['id']) }}" method="POST"
                                             style="display: inline-block">
                                             @csrf
@@ -79,7 +80,7 @@
                                                 Удалить
                                             </button>
                                         </form>
-                                        @endcan
+
                                     </td>
                                 </tr>
                             @endforeach

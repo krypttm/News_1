@@ -15,8 +15,10 @@ class PostFactory extends Factory
     {
         return [
             'title' => $this->faker->unique()->title(),
+            'img' =>$this->faker->word(). 'img',
             'text' => $this->faker->text(),
-            'cat_id' =>$this->faker->cat_id(),
+            'user_id' =>$this->faker->numberBetween(1,10),
+            'cat_id' => $this->faker->numberBetween(1,5)
         ];
     }
 }

@@ -34,8 +34,8 @@ class AuthServiceProvider extends ServiceProvider
             return $user->hasRole('admin') ? true : null;
         });//для админа всё разрешено
 
-       Gate::any(['post.edit', 'post.destroy'] ,function (User $user, Post $post){
-            if($user->id == $post->user_id){
+       Gate::any(['post.edit', 'post.destroy'] ,function (User $user, Post $posts){
+            if($user->id == $posts->user_id){
                 return Response::allow();
             }
 

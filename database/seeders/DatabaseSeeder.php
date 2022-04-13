@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         //Director::factory(30)->create();
         //Post::factory(30)->create();
         //Category::factory(5)->create();
+        //User::factory(10)->create();
     }
 }
