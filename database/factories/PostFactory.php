@@ -18,7 +18,7 @@ class PostFactory extends Factory
             'img' =>$this->faker->word(). 'img',
             'text' => $this->faker->text(),
             'user_id' =>$this->faker->numberBetween(1,10),
-            'cat_id' => $this->faker->numberBetween(1,5)
+            'category_id' => $this->faker->numberBetween(1,5)
         ];
     }
 }

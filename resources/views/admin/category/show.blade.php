@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Статьи категории: {{ $category['title'] }}</h1>
+                    <h1 class="m-0">Статьи категории:</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
             @if ($errors->any())
@@ -37,22 +37,11 @@
                 <div class="col-lg-12">
                     <div class="card card-primary">
                         <!-- form start -->
-                        <form action="{{ route('category.update', $category['id']) }}" method="POST">
-                            @csrf
-                            @method('PUT')
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Название</label>
-                                    <input type="text" value="{{ $category['title'] }}" name="title" class="form-control"
-                                           id="exampleInputEmail1" placeholder="Введите название категории" required>
-                                </div>
-                            </div>
-                            <!-- /.card-body -->
+                        @foreach ($categories as $category)
+                            {{ $category['title'] }}
 
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Обновить</button>
-                            </div>
-                        </form>
+                            @endforeach
+
                     </div>
                 </div>
             </div>

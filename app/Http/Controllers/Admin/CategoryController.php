@@ -55,7 +55,12 @@ class CategoryController extends Controller
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function show($id) {
-       //
+       $categories = Category::all();
+
+        return view('admin.category.show',[
+            'categories' => $categories,
+        ]);
+
     }
 
     /**
